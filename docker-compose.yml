@@ -41,7 +41,7 @@ services:
     restart: unless-stopped
     environment:
       # Enable faster Hugging Face downloads inside the container
-      - HF_HUB_ENABLE_HF_TRANSFER=1
+      - HF_HUB_ENABLE_HF_TRANSFER=0
       # Make NVIDIA GPUs visible and specify capabilities for PyTorch
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
