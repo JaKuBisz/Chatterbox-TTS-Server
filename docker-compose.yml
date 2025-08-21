@@ -12,14 +12,14 @@ services:
       - "${PORT:-8004}:8004"
     volumes:
       # Mount local config file for persistence
-      - ./config.yaml:/app/config.yaml
+      - /mnt/SSD/Apps/ChatterboxTTS/config/config.yaml:/app/config.yaml
       # Mount local directories for persistent app data
-      - ./voices:/app/voices
-      - ./reference_audio:/app/reference_audio
-      - ./outputs:/app/outputs
-      - ./logs:/app/logs
+      - /mnt/SSD/Apps/ChatterboxTTS/appData/voices:/app/voices
+      - /mnt/SSD/Apps/ChatterboxTTS/appData/reference_audio:/app/reference_audio
+      - /mnt/SSD/Apps/ChatterboxTTS/appData/outputs:/app/outputs
+      - /mnt/SSD/Apps/ChatterboxTTS/appData/logs:/app/logs
       # Named volume for Hugging Face model cache to persist across container rebuilds
-      - hf_cache:/app/hf_cache
+      - /mnt/SSD/Apps/ChatterboxTTS/models:/app/hf_cache
     
     # --- GPU Support (NVIDIA) ---
     # The 'deploy' key is the modern way to request GPU resources.
